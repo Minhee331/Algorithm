@@ -3,9 +3,9 @@
 #include <vector>
 using namespace std;
 
-int number = 7; //노드의 개수
-int visited[7]; //방문 체크
-vector<int> node[8]; // node 가 숫자 1부터 들어갈 수 있도록 8로 생성 
+int number = 8; //노드의 개수
+int visited[8]; //방문 체크
+vector<int> node[9]; // node 가 숫자 1부터 들어갈 수 있도록 8로 생성 
 
 void BFS(int start){
 	queue<int> q; //queue 선언
@@ -33,9 +33,6 @@ int main(){
 	node[1].push_back(3);
 	node[3].push_back(1);
 	
-	node[2].push_back(3);
-	node[3].push_back(2);
-	
 	node[2].push_back(4);
 	node[4].push_back(2);
 	
@@ -48,11 +45,8 @@ int main(){
 	node[3].push_back(7);
 	node[7].push_back(3);
 	
-	node[4].push_back(5);
-	node[5].push_back(4);
-	 
-	node[6].push_back(7);
-	node[7].push_back(6);
+	node[5].push_back(8);
+	node[8].push_back(5);
 	
 	BFS(1); //bfs 수행
 	return 0;  
