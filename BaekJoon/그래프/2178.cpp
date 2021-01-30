@@ -4,7 +4,7 @@
 using namespace std;
 
 int maze[100][100]; //미로 정보 
-int visited[100][100] = {0,}; //깊이 역할 
+int visited[100][100] = {0,}; //시작점으로부터의 거리
 int n, m; //행, 열 
 
 void BFS(int x, int y){
@@ -24,7 +24,7 @@ void BFS(int x, int y){
 			int nextX =  currentX + xx[i]; //좌표 업데이트 
 			if( (nextX>=0 && nextX< m) && (nextY>=0 && nextY<n) && maze[nextY][nextX]==1 &&visited[nextY][nextX]==0){ //만약 업데이트된 좌표가 존재하는 좌표이고, 미로좌표가 1(방문 가능),방문하지 않았던  좌표이면,  
 				q.push(make_pair(nextY, nextX)); //q에 다음 좌표를 넣어준다.  
-				visited[nextY][nextX] = visited[currentY][currentX] + 1; //방문 처리 
+				visited[nextY][nextX] = visited[currentY][currentX] + 1; //거리 + 1 
 			} 
 		}
 	}
@@ -37,6 +37,6 @@ int main(){
 			scanf("%1d", &maze[i][j]); 
 		}
 	}
-	BFS(0, 0);
+	BFS(0, 0); 
 	printf("%d\n", visited[n-1][m-1]);
 }
